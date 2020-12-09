@@ -7,10 +7,12 @@
     <!--<%- include("about.ejs") -%>-->
     <div class="box">
         <% for(var i=0; i < toDoItems.length; i++) { %>
+            <form action="/delete" method="POST">
             <div class="item">
-                <input type="checkbox">
-                <p><%= toDoItems[i] %></p>
+                <input name="checkbox" value="<%= toDoItems[i].id %>" type="checkbox" onchange="this.form.submit()">
+                <p><%= toDoItems[i].description %></p>
             </div>
+        </form>
         <% } %>
 
         <form action="/" class="class" method="POST">
